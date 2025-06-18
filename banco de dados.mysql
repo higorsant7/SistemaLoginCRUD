@@ -9,4 +9,15 @@ create table if not exists usuarios(
     senha VARCHAR(255) NOT NULL,
     nivel_acesso ENUM('admin', 'usuario') NOT NULL
 );
+
+CREATE TABLE contatos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) not null,
+    telefone VARCHAR(20) not null,
+    email VARCHAR(100) not null,
+    usuario_id INT not null,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
 select * from usuarios;
+select * from contatos;
